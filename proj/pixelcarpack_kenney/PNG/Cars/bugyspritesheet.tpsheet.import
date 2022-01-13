@@ -1,0 +1,15 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+path="res://.import/bugyspritesheet.tpsheet-a144904331dc82f3912bc9bce4e97461.res"
+
+[deps]
+
+files=[ "res://pixelcarpack_kenney/PNG/Cars/bugyspritesheet.sprites/buggy.tres", "res://pixelcarpack_kenney/PNG/Cars/bugyspritesheet.sprites/buggy2.tres" ]
+
+source_file="res://pixelcarpack_kenney/PNG/Cars/bugyspritesheet.tpsheet"
+dest_files=[ "res://.import/bugyspritesheet.tpsheet-a144904331dc82f3912bc9bce4e97461.res", "res://pixelcarpack_kenney/PNG/Cars/bugyspritesheet.sprites/buggy.tres", "res://pixelcarpack_kenney/PNG/Cars/bugyspritesheet.sprites/buggy2.tres" ]
+
+[params]
+

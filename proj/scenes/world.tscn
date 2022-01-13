@@ -1,0 +1,152 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://background-elements-redux-fix/Backgrounds/backgroundEmpty.png" type="Texture" id=1]
+[ext_resource path="res://kenney_scribbleplatformer/Spritesheet/spritesheet_default.png" type="Texture" id=2]
+[ext_resource path="res://pixelcarpack_kenney/PNG/Cars/buggy.png" type="Texture" id=3]
+[ext_resource path="res://scenes/player.gd" type="Script" id=4]
+[ext_resource path="res://pixelcarpack_kenney/PNG/buggy2.png" type="Texture" id=5]
+[ext_resource path="res://scenes/Background.gd" type="Script" id=6]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 45, 61, 1, 61, 0, 15 )
+
+[sub_resource type="TileSet" id=5]
+4/name = "spritesheet_default.png 4"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 128, 640, 64, 64 )
+4/tile_mode = 2
+4/autotile/icon_coordinate = Vector2( 0, 0 )
+4/autotile/tile_size = Vector2( 64, 64 )
+4/autotile/spacing = 0
+4/autotile/occluder_map = [  ]
+4/autotile/navpoly_map = [  ]
+4/autotile/priority_map = [  ]
+4/autotile/z_index_map = [  ]
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 2 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+5/name = "spritesheet_default.png 5"
+5/texture = ExtResource( 2 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 704, 704 )
+5/tile_mode = 2
+5/autotile/icon_coordinate = Vector2( 0, 0 )
+5/autotile/tile_size = Vector2( 64, 64 )
+5/autotile/spacing = 0
+5/autotile/occluder_map = [  ]
+5/autotile/navpoly_map = [  ]
+5/autotile/priority_map = [  ]
+5/autotile/z_index_map = [  ]
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 3 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 5, 5 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 10 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+6/name = "spritesheet_default.png 6"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 128, 640, 64, 64 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 5.55453
+height = 0.430557
+
+[node name="world" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512, 283 )
+scale = Vector2( 1, 0.5625 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 679.488 )
+scale = Vector2( 3, 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource( 1 )
+
+[node name="WaysTile" type="TileMap" parent="StaticBody2D"]
+tile_set = SubResource( 5 )
+collision_use_parent = true
+collision_friction = 0.0
+format = 1
+tile_data = PoolIntArray( 65540, 0, 0, 65541, 0, 0, 65543, 0, 0, 65544, 0, 65537, 65546, 0, 65536, 65547, 0, 1, 131074, 0, 0, 131075, 0, 65537, 196622, 5, 327690, 196624, 5, 327690, 262150, -1073741820, 0, 262152, 5, 327686, 262153, 5, 327686, 262154, 5, 327686, 262156, 4, 0, 262158, 5, 327690, 262159, 5, 393224, 262160, 5, 327690, 393214, 5, 327685, 393215, 5, 327685, 327680, 5, 327685, 327681, 5, 327685, 327682, 5, 327685, 327683, 5, 327685, 327684, 5, 327685, 327685, 1610612741, 327685, 327686, 1610612741, 327685, 327687, 5, 327685, 327688, 5, 327685, 327689, 5, 327685, 327690, 5, 327685, 327691, 5, 327685, 327692, 5, 327685, 327693, 5, 327685, 327694, 5, 327685, 327695, 5, 327685, 327696, 5, 327685, 327697, 5, 327685, 327698, 5, 327685, 327699, 4, 0, 327709, -1073741820, 0, 327710, -1073741819, 327685, 458750, 5, 327685, 458751, 5, 327685, 393216, 5, 196612, 393217, 5, 327685, 393218, 5, 196612, 393219, 5, 327685, 393220, 5, 196612, 393221, 5, 327685, 393222, 5, 196612, 393223, 5, 327685, 393224, 5, 196612, 393225, 5, 327685, 393226, 5, 327685, 393227, 5, 327685, 393228, 5, 327685, 393229, 5, 327685, 393230, 5, 327685, 393231, 5, 327685, 393232, 5, 327685, 393233, 5, 327685, 393234, 5, 327685, 393235, 5, 327685, 393236, 4, 0, 393244, -1073741820, 0, 393245, -1073741819, 327685, 393246, -1073741819, 327685, 524286, 5, 327685, 524287, 5, 327685, 458752, 5, 196612, 458753, 5, 196612, 458754, 5, 196612, 458755, 5, 196612, 458756, 5, 196612, 458757, 5, 196612, 458758, 5, 196612, 458759, 5, 196612, 458760, 5, 196612, 458761, 5, 196612, 458762, 5, 196612, 458763, 5, 196612, 458764, 5, 327685, 458765, 5, 327685, 458766, 5, 327685, 458767, 5, 327685, 458768, 5, 327685, 458769, 5, 327685, 458770, 5, 327685, 458771, 5, 327685, 458772, 5, 327685, 458773, 4, 0, 458779, -1073741820, 0, 458780, -1073741819, 327685, 458781, -1073741819, 327685, 458782, -1073741819, 327685, 589823, 5, 327685, 524288, 5, 196612, 524289, 5, 196612, 524290, 5, 196612, 524291, 5, 196612, 524292, 5, 196612, 524293, 5, 196612, 524294, 5, 196612, 524295, 5, 196612, 524296, 5, 196612, 524297, 5, 196612, 524298, 5, 196612, 524299, 5, 196612, 524300, 5, 327685, 524301, 5, 327685, 524302, 5, 327685, 524303, 5, 327685, 524304, 5, 327685, 524305, 5, 327685, 524306, 5, 327685, 524307, 5, 327685, 524308, 5, 327685, 524309, 5, 327685, 524310, 4, 0, 524314, -1073741820, 0, 524315, -1073741819, 327685, 524316, -1073741819, 327685, 524317, -1073741819, 327685, 524318, -1073741819, 327685, 655359, 5, 327685, 589824, 5, 327685, 589825, 5, 327685, 589826, 5, 327685, 589827, 5, 327685, 589828, 5, 327685, 589829, 5, 327685, 589830, 5, 327685, 589831, 5, 327685, 589832, 5, 327685, 589833, 5, 327685, 589834, 5, 327685, 589835, 5, 327685, 589836, 5, 327685, 589837, 5, 327685, 589838, 5, 327685, 589839, 5, 327685, 589840, 5, 327685, 589841, 5, 327685, 589842, 5, 327685, 589843, 5, 327685, 589844, 5, 327685, 589845, 5, 327685, 589846, 5, 327685, 589847, 5, 327685, 589848, 5, 327685, 589849, 5, 327685, 589850, -1073741819, 327685, 589851, -1073741819, 327685, 589852, -1073741819, 327685, 589853, -1073741819, 327685, 589854, -1073741819, 327685 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 218.937, 304 )
+scale = Vector2( 3, 3 )
+collision_mask = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="player"]
+frames = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2( 99.021, -7 )
+scale = Vector2( 0.333333, 0.333334 )
+current = true

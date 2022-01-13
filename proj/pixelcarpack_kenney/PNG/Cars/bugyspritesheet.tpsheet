@@ -1,0 +1,48 @@
+{
+	"textures": [
+		{
+			"image": "bugyspritesheet.png",
+			"size": {
+				"w": 50,
+				"h": 16
+			},
+			"sprites": [
+				{
+					"filename": "buggy.png",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 23,
+						"h": 14
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "buggy2.png",
+					"region": {
+						"x": 26,
+						"y": 1,
+						"w": 23,
+						"h": 14
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:1e689ef69507bbb24b8fd9051b67b1f5:314c633eb793b7b38c0a1e26208d3442:c3abc3d3774ca3bfc845bd3d791adca0$"
+	}
+}
